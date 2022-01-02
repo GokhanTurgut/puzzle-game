@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background: rgb(6, 10, 61);
+  background: linear-gradient(
+    180deg,
+    rgba(6, 10, 61, 1) 10%,
+    rgba(0, 77, 115, 1) 100%
+  );
+}
+
+.piece {
+  width: 10rem;
+  cursor: move;
+}
+
+.title {
+  font-family: "Pacifico", cursive;
+  color: #e694ff;
+  font-size: 3rem;
+  padding-top: 1rem;
+  margin: 0;
+}
+
+.game {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.game--random {
+  display: grid;
+  grid-template-columns: repeat(5, 10rem);
+  grid-template-rows: repeat(5, 105px);
+  gap: 3px;
+  padding: 3px;
+  background-color: black;
+}
+
+.game--correct {
+  display: grid;
+  grid-template-columns: repeat(5, 10rem);
+  grid-template-rows: repeat(5, 105px);
+  gap: 3px;
+  padding: 3px;
+  background-color: black;
+}
+
+.correct--div {
+  background-color: white;
+}
+
+.dragged {
+  opacity: 0.3;
+}
+
+.dragEntered {
+  background-color: #a1a1a1;
+}
+
+.message {
+  height: 4rem;
+  font-size: 2rem;
+  padding: 1rem 0;
+  margin: 0;
+  font-family: "Pacifico", cursive;
+}
+
+.btn {
+  background-color: #d247fc;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 50px;
+}
+
+.btn:hover,
+.btn:active {
+  transform: scale(1.1);
+  background-color: #e694ff;
+}
+
+.btn > a {
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Pacifico", cursive;
+}
+
+.btn > a:visited {
+  color: black;
+}
+
+.btn > a:hover {
+  color: black;
+}
+
+.footer {
+  font-size: 1rem;
+  margin: 1rem;
+  font-family: "Pacifico", cursive;
+}
+
+.footer > a {
+  text-decoration: none;
+  color: #d247fc;
+}
+
+.footer > a:visited {
+  color: #d247fc;
+}
+
+.footer > a:hover {
+  color: #e694ff;
+}
