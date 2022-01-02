@@ -11,15 +11,54 @@ body {
     rgba(6, 10, 61, 1) 10%,
     rgba(0, 77, 115, 1) 100%
   );
+  font-family: "Pacifico", cursive;
+}
+
+.puzzles > h2 {
+  text-align: center;
+  color: white;
+  margin-top: 4rem;
+  font-weight: 500;
+}
+
+.puzzles--container {
+  display: flex;
+  gap: 1rem;
+}
+
+.puzzles--item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+}
+
+.puzzles--item > img {
+  width: 35rem;
+  height: 23.3rem;
+}
+
+.puzzles--item > h3 {
+  color: white;
+  font-weight: 500;
+}
+
+.puzzles--item > button {
+  font-family: "Pacifico", cursive;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .piece {
   width: 10rem;
+  height: 6.8rem;
   cursor: move;
 }
 
 .title {
-  font-family: "Pacifico", cursive;
   color: #e694ff;
   font-size: 3rem;
   padding-top: 1rem;
@@ -31,13 +70,13 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  flex: 1;
+  margin-top: 2rem;
 }
 
 .game--random {
   display: grid;
   grid-template-columns: repeat(5, 10rem);
-  grid-template-rows: repeat(5, 105px);
+  grid-template-rows: repeat(5, 6.8rem);
   gap: 3px;
   padding: 3px;
   background-color: black;
@@ -46,7 +85,7 @@ body {
 .game--correct {
   display: grid;
   grid-template-columns: repeat(5, 10rem);
-  grid-template-rows: repeat(5, 105px);
+  grid-template-rows: repeat(5, 6.8rem);
   gap: 3px;
   padding: 3px;
   background-color: black;
@@ -69,7 +108,6 @@ body {
   font-size: 2rem;
   padding: 1rem 0;
   margin: 0;
-  font-family: "Pacifico", cursive;
 }
 
 .btn {
@@ -103,7 +141,8 @@ body {
 .footer {
   font-size: 1rem;
   margin: 1rem;
-  font-family: "Pacifico", cursive;
+  position: absolute;
+  bottom: .5rem;
 }
 
 .footer > a {
@@ -117,4 +156,8 @@ body {
 
 .footer > a:hover {
   color: #e694ff;
+}
+
+.display-none {
+  display: none;
 }

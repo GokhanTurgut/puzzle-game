@@ -17,17 +17,39 @@
   </head>
   <body>
     <h1 class="title">Puzzle Game</h1>
-    <div class="game">
+    <div class="puzzles" id="puzzleSelector">
+      <h2>Choose your puzzle picture!</h2>
+      <div class="puzzles--container">
+        <div class="puzzles--item">
+          <img src="./assets/TheSchoolOfAthens.webp" alt="Puzzle Image" />
+          <h3>The School of Athens</h3>
+          <button id="puzzle-0" class="btn">Pick</button>
+        </div>
+        <div class="puzzles--item">
+          <img src="./assets/istanbul.webp" alt="Puzzle Image" />
+          <h3>Istanbul</h3>
+          <button id="puzzle-1" class="btn">Pick</button>
+        </div>
+        <div class="puzzles--item">
+          <img src="./assets/scenary.webp" alt="Puzzle Image" />
+          <h3>A scenary from Canada</h3>
+          <button id="puzzle-2" class="btn">Pick</button>
+        </div>
+      </div>
+    </div>
+    <div class="game display-none" id="gameContainer">
       <div id="randomContainer" class="game--random"></div>
       <div id="correctContainer" class="game--correct"></div>
     </div>
-    <p id="message" class='message'></p>
-    <button class="btn"><a href="/">Reset</a></button>
-    <div class="footer"
-      >Made by
+    <p id="message" class="message"></p>
+    <button class="btn display-none" id="resetBtn">
+      <a href="/">Reset</a>
+    </button>
+    <div class="footer">
+      Made by
       <a href="https://github.com/GokhanTurgut" target="_blank"
         >Gökhan Turgut</a
-      ></div
-    >
+      >
+    </div>
   </body>
 </html>

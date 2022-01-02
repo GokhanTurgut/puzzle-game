@@ -1,47 +1,83 @@
 "use strict";
 
+const puzzleSelector = document.getElementById("puzzleSelector");
+const gameContainer = document.getElementById("gameContainer");
 const randomContainer = document.getElementById("randomContainer");
 const correctContainer = document.getElementById("correctContainer");
 const message = document.getElementById("message");
+const resetBtn = document.getElementById("resetBtn");
+const puzzle0Btn = document.getElementById("puzzle-0");
+const puzzle1Btn = document.getElementById("puzzle-1");
+const puzzle2Btn = document.getElementById("puzzle-2");
 
 const puzzlePieces = [];
 const emptySpots = [];
+let randomPieces = [];
 
 let draggedPiece;
 
-for (let i = 0; i < 25; i++) {
-  const imageContainer = document.createElement("div");
-  imageContainer.id = `${i}`;
-  imageContainer.draggable = false;
-  const pieceElement = document.createElement("img");
-  pieceElement.src = `./assets/piece-${i}.webp`;
-  pieceElement.draggable = true;
-  pieceElement.classList.add("piece");
-  pieceElement.dataset.index = i;
-  imageContainer.appendChild(pieceElement);
-  const piece = {
-    order: i,
-    element: imageContainer,
-  };
-  puzzlePieces.push(piece);
+btnEventListeners();
+
+function getPuzzlePieces(puzzleId) {
+  for (let i = 0; i < 25; i++) {
+    const imageContainer = document.createElement("div");
+    imageContainer.id = `${i}`;
+    imageContainer.draggable = false;
+    const pieceElement = document.createElement("img");
+    pieceElement.src = `./assets/puzzle-${puzzleId}/piece-${i}.webp`;
+    pieceElement.draggable = true;
+    pieceElement.classList.add("piece");
+    pieceElement.dataset.index = i;
+    imageContainer.appendChild(pieceElement);
+    const piece = {
+      order: i,
+      element: imageContainer,
+    };
+    puzzlePieces.push(piece);
+  }
 }
 
-for (let i = 0; i < 25; i++) {
-  const divElement = document.createElement("div");
-  divElement.classList.add("correct--div");
-  emptySpots.push(divElement);
-  correctContainer.appendChild(divElement);
+function createEmptySpots() {
+  for (let i = 0; i < 25; i++) {
+    const divElement = document.createElement("div");
+    divElement.classList.add("correct--div");
+    emptySpots.push(divElement);
+    correctContainer.appendChild(divElement);
+  }
 }
 
-eventListeners();
+function getRandomPieces() {
+  randomPieces = randomizer(puzzlePieces);
+  randomPieces.forEach((piece) => {
+    randomContainer.appendChild(piece.element);
+  });
+}
 
-const randomPieces = randomizer(puzzlePieces);
+function gameStateHandler() {
+  puzzleSelector.classList.add("display-none");
+  gameContainer.classList.remove("display-none");
+  resetBtn.classList.remove("display-none");
+  createEmptySpots();
+  getRandomPieces();
+  puzzleEventListeners();
+}
 
-randomPieces.forEach((piece) => {
-  randomContainer.appendChild(piece.element);
-});
+function btnEventListeners() {
+  puzzle0Btn.addEventListener("click", () => {
+    getPuzzlePieces(0);
+    gameStateHandler();
+  });
+  puzzle1Btn.addEventListener("click", () => {
+    getPuzzlePieces(1);
+    gameStateHandler();
+  });
+  puzzle2Btn.addEventListener("click", () => {
+    getPuzzlePieces(2);
+    gameStateHandler();
+  });
+}
 
-function eventListeners() {
+function puzzleEventListeners() {
   puzzlePieces.forEach((piece) => {
     piece.element.addEventListener("dragstart", onDragStart);
     piece.element.addEventListener("dragend", onDragEnd);
