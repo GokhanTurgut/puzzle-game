@@ -56,6 +56,7 @@ body {
   width: 10rem;
   height: 6.8rem;
   cursor: move;
+  user-select: none;
 }
 
 .title {
@@ -80,6 +81,7 @@ body {
   gap: 3px;
   padding: 3px;
   background-color: black;
+  user-select: none;
 }
 
 .game--correct {
@@ -89,6 +91,7 @@ body {
   gap: 3px;
   padding: 3px;
   background-color: black;
+  user-select: none;
 }
 
 .correct--div {
@@ -101,6 +104,9 @@ body {
 
 .dragEntered {
   background-color: #a1a1a1;
+  border: 3px dashed #e694ff;
+  box-sizing: content-box;
+  overflow: hidden;
 }
 
 .message {
@@ -142,7 +148,7 @@ body {
   font-size: 1rem;
   margin: 1rem;
   position: absolute;
-  bottom: .5rem;
+  bottom: 0.5rem;
 }
 
 .footer > a {

@@ -22,7 +22,7 @@ function getPuzzlePieces(puzzleId) {
   for (let i = 0; i < 25; i++) {
     const imageContainer = document.createElement("div");
     imageContainer.id = `${i}`;
-    imageContainer.draggable = false;
+    imageContainer.draggable = true;
     const pieceElement = document.createElement("img");
     pieceElement.src = `./assets/puzzle-${puzzleId}/piece-${i}.webp`;
     pieceElement.draggable = true;
@@ -117,9 +117,14 @@ function onDragDrop(event) {
   if (draggedPiece !== this) {
     draggedPiece.innerHTML = this.innerHTML;
     this.innerHTML = event.dataTransfer.getData("text/html");
+    // Another approach
+    // let temp = this.innerHTML;
+    // this.innerHTML = draggedPiece.innerHTML;
+    // draggedPiece.innerHTML = temp;
   }
   classRemover();
   resultChecker();
+  draggedPiece.classList.remove("dragged");
   this.classList.remove("dragEntered");
   this.classList.remove("dragged");
 }
@@ -135,8 +140,12 @@ function resultChecker() {
     if (spot.firstChild) {
       if (+spot.firstChild.dataset.index !== index) {
         correctOrder = false;
+        message.innerText = "";
       }
-    } else filled = false;
+    } else {
+      filled = false;
+      message.innerText = "";
+    }
   });
   if (correctOrder && filled) {
     message.innerText = `Nice job! That's the correct order!`;
