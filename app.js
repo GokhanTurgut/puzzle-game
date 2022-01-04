@@ -1,5 +1,6 @@
 "use strict";
 
+// DOM Elements
 const puzzleSelector = document.getElementById("puzzleSelector");
 const gameContainer = document.getElementById("gameContainer");
 const randomContainer = document.getElementById("randomContainer");
@@ -18,6 +19,7 @@ let draggedPiece;
 
 btnEventListeners();
 
+// Creating an img element and configuring it then appending it to the container
 function getPuzzlePieces(puzzleId) {
   for (let i = 0; i < 25; i++) {
     const imageContainer = document.createElement("div");
@@ -46,6 +48,7 @@ function createEmptySpots() {
   }
 }
 
+// Creates the shuffled array with the help of randomizer function
 function getRandomPieces() {
   randomPieces = randomizer(puzzlePieces);
   randomPieces.forEach((piece) => {
@@ -93,6 +96,7 @@ function puzzleEventListeners() {
   });
 }
 
+// Storing the dragged element in data transfer
 function onDragStart(event) {
   this.classList.add("dragged");
   draggedPiece = this;
